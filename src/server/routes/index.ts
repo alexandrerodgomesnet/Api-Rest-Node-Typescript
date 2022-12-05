@@ -1,31 +1,13 @@
 import { Router } from 'express';
-import { StatusCodes } from 'http-status-codes';
 import { CidadesController } from '../controllers';
 
 const router = Router();
 
-router.get('/', (_, res) => {
-    return res.send('Olá mundo!');
-});
-
-router.post('/teste', (req, res) => {
-    return res.status(StatusCodes.OK).json(req.body);
-});
-
 //Cidades
-
-//*** GET ***//
-router.get('/cidades',
-    CidadesController.listarValidation,
-    CidadesController.Listar
-);
-
-//*** GET ***//
-router.post('/cidades',
-    CidadesController.adicionarValidation,
-    CidadesController.adicionar
-);
-
-
+router.post('/cidades', CidadesController.AdicionarValidation, CidadesController.Adicionar);
+router.get('/cidades', CidadesController.ListarValidation, CidadesController.Listar);
+router.get('/cidades/:id', CidadesController.ObterValidation, CidadesController.Obter);
+router.put('/cidades/:id', CidadesController.AtualizarValidation, CidadesController.Atualizar);
+router.delete('/cidades/:id', CidadesController.ExcluirValidation, CidadesController.Excluir);
 
 export { router };
