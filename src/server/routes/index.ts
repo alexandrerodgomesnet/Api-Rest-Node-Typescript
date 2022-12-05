@@ -13,9 +13,19 @@ router.post('/teste', (req, res) => {
 });
 
 //Cidades
+
+//*** GET ***//
+router.get('/cidades',
+    CidadesController.listarValidation,
+    CidadesController.Listar
+);
+
+//*** GET ***//
 router.post('/cidades',
-    CidadesController.createValidation,
+    CidadesController.adicionarValidation,
     CidadesController.adicionar
 );
+
+
 
 export { router };

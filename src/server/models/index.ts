@@ -1,2 +1,3 @@
-export * from './interfaces/IFilter';
-export * from './interfaces/cidades/ICidade';
+export * from './interfaces';
+export * from './types';
+export * from './enums';
